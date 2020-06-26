@@ -1,4 +1,4 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import add from './modules/add';
 import tax from './modules/tax';
 import '../scss/style.scss';

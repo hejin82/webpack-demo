@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -55,5 +56,11 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      // 外部モジュールであるjqueryを、全てのファイル上で変数$として利用できるようになる
+      $: 'jquery'
+    })
+  ]
 };
