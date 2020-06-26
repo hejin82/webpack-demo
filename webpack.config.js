@@ -12,7 +12,7 @@ module.exports = {
       {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src/js'),
-        user: [
+        use: [
           {
             loader: 'babel-loader',
             options: {
