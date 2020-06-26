@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -61,6 +63,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       // 外部モジュールであるjqueryを、全てのファイル上で変数$として利用できるようになる
       $: 'jquery'
-    })
+    }),
+    new BundleAnalyzerPlugin(),
+    new CleanWebpackPlugin()
   ]
 };
