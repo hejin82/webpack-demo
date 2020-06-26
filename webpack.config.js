@@ -45,7 +45,14 @@ module.exports = {
       {
         test: /\.(png|jpg|gis)$/i,
         include: path.resolve(__dirname, 'src/images'),
-        loader: 'url-loader'
+        loader: 'url-loader',
+        options: {
+          limit: 8192, // 8KB(8 * 1024)
+          name: '[name].[ext]',
+          outputPath: '../images/',
+          // public/index.htmlからpublic/imagesの画像を読み込み
+          publicPath: path => './images/' + path
+        }
       }
     ]
   }
