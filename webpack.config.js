@@ -27,6 +27,16 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.scss$/,
+        include: path.resolve(__dirname, 'src/scss'),
+        use: [
+          // 実行順番は逆である
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   }
