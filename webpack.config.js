@@ -33,10 +33,19 @@ module.exports = {
         include: path.resolve(__dirname, 'src/scss'),
         use: [
           // 実行順番は逆である
+
+          // HTMLに、style-loaderで変換したcssのスタイルが記述された<style>タグに追加
           'style-loader',
+          // cssをモジュールに変換
           'css-loader',
+          // sassをcssにコンバイル
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(png|jpg|gis)$/i,
+        include: path.resolve(__dirname, 'src/images'),
+        loader: 'url-loader'
       }
     ]
   }
