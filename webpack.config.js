@@ -5,9 +5,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/js/app.js',
+  // entry: './src/js/app.js',
+  entry: {
+    app: './src/js/app.js',
+    search: './src/js/search.js'
+  },
   output: {
-    filename: 'bundle.js',
+    // filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public/js')
   },
   module: {
@@ -64,7 +69,7 @@ module.exports = {
       // 外部モジュールであるjqueryを、全てのファイル上で変数$として利用できるようになる
       $: 'jquery'
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin()
   ]
 };
